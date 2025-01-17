@@ -17,6 +17,10 @@ st.write("##### * Streamlit app (Python software) ~ https://euroleaguebasketball
 st.write(" It loads all stats quicker than RShiny")
 st.write("#### ")
 st.write(
+    "### - ⚽ Greek Superleague Stats")
+st.write("##### https://football-data-analysis.streamlit.app/ ")
+st.write("#### ")
+st.write(
     "### - 💡 Belyse Lights: Analyze the orders of the eshop")
 st.write("##### https://belyselights.streamlit.app/ ")
 st.write("#### ")
