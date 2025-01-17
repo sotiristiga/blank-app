@@ -4,7 +4,7 @@ import streamlit as st
 
 st.set_page_config(layout='wide',page_title="Tiganitas Sotiris Dashboard Portofolio",page_icon="")
 
-st.title("My dashboard portofolios📈📊")
+st.title("My dashboards portfolios📈📊")
 st.write("#### ")
 st.write(
     "### - 🏀 Euroleague Stats:"
@@ -21,17 +21,17 @@ st.write(
 st.write("##### https://football-data-analysis.streamlit.app/ ")
 st.write("#### ")
 st.write(
-    "### - 💡 Belyse Lights: Analyze the orders of the eshop")
+    "### - 💡 Belyse Lights: Analyzes the orders of the eshop")
 st.write("##### https://belyselights.streamlit.app/ ")
 st.write("#### ")
 
 st.write(
-    "### - 📋 Insurance Broker portofolio: Analyze the insurance policies and the development of the company")
+    "### - 📋 Insurance Broker portofolio: Analyzes the insurance policies and the development of the company")
 st.write("##### https://stportofoliomanage.streamlit.app/ ")
 
 st.write("#### ")
 st.write(
-    "### - 📋 Insurance Broker portofolio: Analyze the insurance policies and the development of the company")
+    "### - 📋 Insurance Broker portofolio: Analyzes the insurance policies and the development of the company")
 st.write("##### https://insurancebrokerftportofolio.streamlit.app/ ")
 
 st.write("#### ")
