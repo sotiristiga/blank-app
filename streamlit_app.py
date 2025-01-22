@@ -4,7 +4,7 @@ import streamlit as st
 
 st.set_page_config(layout='wide',page_title="Tiganitas Sotiris Dashboard Portofolio",page_icon="")
 
-st.title("My dashboards portfolios📈📊")
+st.title("My dashboards portfolio📈📊")
 st.write("#### ")
 st.write(
     "### - 🏀 Euroleague Stats:"
