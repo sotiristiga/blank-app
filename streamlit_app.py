@@ -1,21 +1,35 @@
 import streamlit as st
 import pyodbc
-conn = pyodbc.connect(
-    "DRIVER={ODBC Driver 17 for SQL Server};"
-    "SERVER=LAPTOP-SRAV2QR1\\MSSQLSERVER01;"
-    "DATABASE=Euroleague;"
-    "Trusted_Connection=yes;"
-    "TrustServerCertificate=yes;"
-)
-cursor = conn.cursor()
-cursor.execute("SELECT TOP 100 * FROM dbo.euroleague_2016_2017_playerstats")   # βάλε το όνομα του πίνακα σου
-rows = cursor.fetchall()
-st.write(rows)
-df = pd.DataFrame.from_records(
-    rows,
-    columns=[column[0] for column in cursor.description]
-)
-st.write(df)
+def get_connection():
+    return pyodbc.connect(
+        "DRIVER={ODBC Driver 17 for SQL Server};"
+        "SERVER=LAPTOP-SRAV2QR1\\MSSQLSERVER01;"
+        "DATABASE=Euroleague_Pancake;"
+        "Trusted_Connection=yes;"
+        "TrustServerCertificate=yes;"
+    )
+
+# -----------------------------
+# LOAD DATA
+# -----------------------------
+@st.cache_data
+def load_data():
+    conn = get_connection()
+    query = "SELECT * FROM dbo.Attack"   # άλλαξε το όνομα του πίνακα σου
+    df = pd.read_sql(query, conn)
+    conn.close()
+    return df
+
+# -----------------------------
+# STREAMLIT UI
+# -----------------------------
+st.title("Euroleague Pancake Dashboard")
+st.write("Live data from SQL Server")
+
+df = load_data()
+
+st.subheader("Raw Data")
+st.dataframe(df)
 
 st.set_page_config(layout='wide',page_title="Tiganitas Sotiris Dashboard Portofolio",page_icon="")
 
