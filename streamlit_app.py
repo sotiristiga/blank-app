@@ -1,6 +1,21 @@
 import streamlit as st
-
-
+import pyodbc
+conn = pyodbc.connect(
+    "DRIVER={ODBC Driver 17 for SQL Server};"
+    "SERVER=LAPTOP-SRAV2QR1\\MSSQLSERVER01;"
+    "DATABASE=Euroleague;"
+    "Trusted_Connection=yes;"
+    "TrustServerCertificate=yes;"
+)
+cursor = conn.cursor()
+cursor.execute("SELECT TOP 100 * FROM dbo.euroleague_2016_2017_playerstats")   # βάλε το όνομα του πίνακα σου
+rows = cursor.fetchall()
+st.write(rows)
+df = pd.DataFrame.from_records(
+    rows,
+    columns=[column[0] for column in cursor.description]
+)
+st.write(df)
 
 st.set_page_config(layout='wide',page_title="Tiganitas Sotiris Dashboard Portofolio",page_icon="")
 
